@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT||80;
 const userRouter = require("./api/users/user.router");
 const questionRouter = require("./api/questions/question.router");
 const answerRouter = require("./api/answers/answer.router");
@@ -14,4 +14,4 @@ app.use("/api/users", userRouter);
 app.use("/api/questions", questionRouter);
 app.use("/api/answers", answerRouter);
 
-app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
+app.listen(port,"0.0.0.0", () => console.log(`Listening at http://localhost:${port}`));
